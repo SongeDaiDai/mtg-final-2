@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Search</title>
+    <link href="css/mick.css" rel="stylesheet">
+    <link href="css/card.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="js/jQuery.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@1,100&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="search">
+        <label for="typeSelector"><h4>Show Type:</h4></label>
+        <hr>
+        <select name="typeSelector" id="typeSelector" class="typeSelector">
+            <option name="any" id="anyType">Any</option>
+        </select>
+        <hr>
+        <label for="raritySelector"><h4>Show By Rarity</h4></label>
+        <hr>
+        <fieldset id="raritySelector" name="raritySelector">
+            <input class="check" type="checkbox" id="any" checked>
+            <label for="any">Any<br></label>
+            <input class="check" type="checkbox" id="common" name="rarity" value="common">
+            <label for="common">Common<br></label>
+            <input class="check" type="checkbox" id="uncommon" name="rarity" value="uncommon">
+            <label for="uncommon">Uncommon<br></label>
+            <input class="check" type="checkbox" id="rare" name="rarity" value="rare">
+            <label for="rare">Rare<br></label>
+            <input class="check" type="checkbox" id="mythic" name="rarity" value="mythic">
+            <label for="mythic">Mythic Rare<br></label>
+        </fieldset>
+        <hr>
+    </div>
+</header>
+<main>
+
+    <div class="card-wrapper" style="font-family: Overpass, sans-serif;">
+        <div class="card-group" id="search-results">
+        </div>
+    </div>
+
+
+</main>
+<footer>
+    <div class="copy">
+        Copyright &nbsp <i class="fa-regular fa-copyright"></i> &nbsp CCCS310 FINAL
+        <button class="top" id="top"><i id="button"
+                                        class="fa-solid fa-circle-chevron-up" onclick="topFunction()"></i></button>
+    </div>
+</footer>
+</body>
+<script type="module" src="./js/apiCalls.js"></script>
+<script>
+
+    function topFunction() {
+        ($("html, body").animate(
+            {scrollTop: "0"}, 300))
+    }
+</script>
+</html>
