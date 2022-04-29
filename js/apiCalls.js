@@ -48,7 +48,11 @@ function cardTypeAdd(cardType){
 
 let checkedList = []
 let rarityList = ""
-document.getElementById("typeSelector").onchange = clearSearch.then(search);
+let common = document.getElementById("common")
+let uncommon = document.getElementById("uncommon")
+let rare = document.getElementById("rare")
+let mythic = document.getElementById("mythic")
+document.getElementById("typeSelector").onchange = search;
 document.getElementById("common").onchange = function () {
     if (common.checked) {
         checkedList.push(common.value)
@@ -100,7 +104,7 @@ async function getRarity() {
             }
         }
     }
-    await clearSearch.then(search)
+    await search
 }
 
 function urlBuilder() {
@@ -133,6 +137,7 @@ async function clearSearch() {
 }
 
 async function search() {
+    await clearSearch()
     await scryFall(urlBuilder())
 }
 
