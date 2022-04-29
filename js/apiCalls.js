@@ -48,7 +48,7 @@ function cardTypeAdd(cardType){
 
 let checkedList = []
 let rarityList = ""
-document.getElementById("typeSelector").onchange = search
+document.getElementById("typeSelector").onchange = clearSearch.then(search);
 document.getElementById("common").onchange = function () {
     if (common.checked) {
         checkedList.push(common.value)
@@ -100,7 +100,7 @@ async function getRarity() {
             }
         }
     }
-    await search()
+    await clearSearch.then(search)
 }
 
 function urlBuilder() {
@@ -186,6 +186,8 @@ async function scryFall(urlCard) {
                         fade(`card_${count}`, 0.1, 10)
                         count++
                     }
+                } else {
+                await noResults
                 }
 
             }
